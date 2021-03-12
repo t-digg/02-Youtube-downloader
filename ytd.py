@@ -1,6 +1,16 @@
-import youtube_dl
+import youtube_dl, os
 
-link = ['https://www.youtube.com/watch?v=6LzuIch-wQo&list=PLG49S3nxzAnmpdmX7RoTOyuNJQAb-r-gd&index=2']
+ytd = youtube_dl.YoutubeDL()
 
-with youtube_dl.YoutubeDL() as ydl:
-    ydl.download(link)
+#get URL from user
+link = input('Please enter the URL of the video or playlist you wish to download: ')
+link = [link] #can be a list of multiple links
+
+#change directory to 
+environment_variables = dict(os.environ)
+homepath = environment_variables['HOMEPATH']
+downloads_folder = ('c:%s\\downloads' % homepath)
+os.chdir(downloads_folder)
+
+#downloads video to current directory 
+ytd.download(link)
