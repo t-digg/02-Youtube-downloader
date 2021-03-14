@@ -8,5 +8,5 @@
 -Github repo: https://github.com/ytdl-org/youtube-dl
 
 -pyqt5 #pip install pyqt5
--pyuic5 -x test.ui -o test.py # enter in command line in order to change ui file from designer to py
+-pyuic5 -x ytdgui.ui -o test.py # enter in command line in order to change ui file from designer to py
 
