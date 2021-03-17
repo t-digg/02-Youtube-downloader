@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import os, youtube_dl, time
+import os, youtube_dl
 
 
 class Ui_YT_Downloader(object):
@@ -216,7 +216,7 @@ class Ui_YT_Downloader(object):
         homepath = environment_variables['HOMEPATH']
         downloads_folder = ('c:%s\\downloads' % homepath)
         os.chdir(downloads_folder)
-        time.sleep(5)
+    
 
         #download video        
         ydl = youtube_dl.YoutubeDL({})
