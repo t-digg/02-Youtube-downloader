@@ -46,11 +46,11 @@ def read_input():
 
 #loading the pyqt application
 app = QtWidgets.QApplication([])
-window = uic.loadUi("ytdgui.ui")
+window = uic.loadUi("test.ui")
 
 #setting actions for button clicks
-window.pushButton.clicked.connect(read_input)
-window.pushButton_2.clicked.connect(sys.exit)
+#window.pushButton.clicked.connect(read_input)
+#window.pushButton_2.clicked.connect(sys.exit)
 
 
 #calling the application
