@@ -203,28 +203,33 @@ class Ui_YT_Downloader(object):
         self.URL_Bar.setPlaceholderText(_translate("YT_Downloader", "Enter YouTube URL here"))
         self.Download_Button.setText(_translate("YT_Downloader", "Download"))
         self.Exit_Button.setText(_translate("YT_Downloader", "Exit"))
-        self.Status.setText(_translate("YT_Downloader", "Created by: Anthony Bisignaro"))
+        self.Status.setText(_translate("YT_Downloader", "Note both single videos and playlists work"))
 
     def Download_Click(self, YT_Downloader):
         url = self.URL_Bar.text()
-        url = [url]
+        
         self.URL_Bar.clear()
-        self.Status.setText("Downloading")
-
-        #change downloads designation folder
-        environment_variables = dict(os.environ)
-        homepath = environment_variables['HOMEPATH']
-        downloads_folder = ('c:%s\\downloads' % homepath)
-        os.chdir(downloads_folder)
+        self.Status.setText('Downloading')
+        
+        
+        if not url.startswith("https://www.youtube.com/watch?v="):
+            self.Status.setText('Please enter youtube, video or playlist, URL')
+        else:
+            url = [url]
+            #change downloads designation folder
+            environment_variables = dict(os.environ)
+            homepath = environment_variables['HOMEPATH']
+            downloads_folder = ('c:%s\\downloads' % homepath)
+            os.chdir(downloads_folder)
     
 
-        #download video        
-        ydl = youtube_dl.YoutubeDL({})
-        info = ydl.extract_info(url[0])
-        title = info["title"]
-        self.Status.setText('Downloaded: %s' % title)
+            #download video        
+            ydl = youtube_dl.YoutubeDL({})
+            info = ydl.extract_info(url[0])
+            title = info["title"]
+            self.Status.setText('Downloaded: %s' % title)
         
-        #ydl.download(url[0])
+        
         
         
 
