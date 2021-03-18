@@ -1,0 +1,3 @@
+window.label.adjustSize()#####test%%%%%bugg
+create functions just for a youtube download
+create a function just for quick directory jawns
