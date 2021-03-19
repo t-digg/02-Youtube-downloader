@@ -27,16 +27,11 @@ To convert .ui files generated from QT Designer into .py in the command line typ
 
 ##  Known bugs:
 
-### status label does not update even though it's placed logically above the YouTube downloader itself
+### tests  
 
-#### tests  
-- attempted to change position of the changing of the underlying qlabel - **fail**
-- attempted to take out youtube downloader to see if qlabel would set - **pass** -m "Likely a problem within youtube downloader 
-- took out directory change- **fail**
-- tried to *hide()* initial qlabel and *show()* qlabel - **fail**
-- tried beginning with blank string q-label then changing qlabel **fail**
-- 
-#### potential remedies
-- write a function seperate for the download/path change to execute after the *Download_Click* function
-- create a progress bar from the youtube_dl function?
-- add a third label that is hidden until button push
+### potential remedies
+
+## To-Do
+
+- add an advanced tab so that you can pick download quality and an audio only option
+- add a progress bar
