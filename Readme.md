@@ -18,7 +18,7 @@ Github repo: https://github.com/ytdl-org/youtube-dl
 ### pyqt5 
 
 To install package from command line enter:
->pip install pyqt5
+> pip install pyqt5
 
 #### QT Designer
 
