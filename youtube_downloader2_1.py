@@ -187,12 +187,16 @@ class Ui_YT_Downloader(object):
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
         YT_Downloader.setCentralWidget(self.centralwidget)
 
+        # sets displayed texts for the buttons and labels
         self.retranslateUi(YT_Downloader)
+        
+        # sets what happens when the buttons are clicked or when the enter key is used
         self.URL_Bar.returnPressed.connect(self.Download_Button.click)
         self.Download_Button.clicked.connect(self.Download_Click)
         self.Exit_Button.clicked.connect(YT_Downloader.close)
         QtCore.QMetaObject.connectSlotsByName(YT_Downloader)
 
+    # sets initial text displayed 
     def retranslateUi(self, YT_Downloader):
         _translate = QtCore.QCoreApplication.translate
         YT_Downloader.setWindowTitle(_translate("YT_Downloader", "MainWindow"))
@@ -202,10 +206,13 @@ class Ui_YT_Downloader(object):
         self.Exit_Button.setText(_translate("YT_Downloader", "Exit"))
         self.Status.setText(_translate("YT_Downloader", "Please Enter YouTube video URL or playlist URL above"))
 
+
+    # defines what happens when the download button is clicked or when the enter button is pressed
     def Download_Click(self, YT_Downloader):
         url = self.URL_Bar.text()
         self.URL_Bar.clear()
 
+        # gets the title of the video being downloaded
         def get_title(url):
             
             #added try/except in order to bounce out bad URLs and avoid app crashes
@@ -221,60 +228,44 @@ class Ui_YT_Downloader(object):
         
         
         # Calling the function to get the title of the video requested
+        # need to displaying a loading bar for playlists so the user knows that the status has changed
         title = get_title(url)
+
+        # Updates the status bar to show download is in progress
         self.Status.setText(f"Downloading: {title}")
     
+        # sets default starting folder for file dialog
+        # bug need to make this os agnostic and not windows centric
         environment_variables = dict(os.environ)
         homepath = environment_variables['HOMEPATH']
         downloads_folder = ('c:%s\\downloads' % homepath)
         os.chdir(downloads_folder)
         
         #Select destignation folder
-        
         def launchDialog(url):
-            
-            
-           
+                       
             try:   
                 selected_folder = QFileDialog.getExistingDirectory(caption='Select a folder')
                 os.chdir(selected_folder)
                 download_video(url)  
+            
             except:
-                self.Status.setText("Download Canceled")
-                
-            
-            
-        
-            
-                
+                self.Status.setText("Download Canceled")  
 
-        
-       
-        
-
-        ##change downloads designation folder
-        #environment_variables = dict(os.environ)
-        #homepath = environment_variables['HOMEPATH']
-        #downloads_folder = ('c:%s\\downloads' % homepath)
-        #os.chdir(downloads_folder)
-
-        
-        # added a try/except statement to avoid crashes
+        # added a try/except statement to avoid crashes from non youtube video/playlist urls
         def download_video(url):
-            print(url)
-            
-
-
+                        
             try:
                 
                 url = [url]
                 ytd = youtube_dl.YoutubeDL()
                 ytd.download(url)
                 self.Status.setText(f"Downloaded {title}")
+            
             except:
                 self.Status.setText("Couldn't find requested video please try again.")
 
-          
+        # launches directory dialog menu and downloads requested file to specified directory 
         launchDialog(url)    
         
 
