@@ -27,9 +27,17 @@ To convert .ui files generated from QT Designer into .py in the command line typ
 
 ##  Known bugs:
 
+> if downloading a playlist app seems to hang not letting the user know what its doing in the background, ordering is right but for some reason youtube_dl is operating out of turn
+> app trys to change working directory to a windows path
+
 ### tests  
+> TODO: import asynchio module and see if i can have the proccess of title change and youtube scraping at the same time
+> TODO: Research other youtube modules
+> TODO: create an elif statement to deal with linux crashes or see if there is a better env variable
 
 ### potential remedies
+> switch to asynch functions 
+
 
 ## To-Do
 
