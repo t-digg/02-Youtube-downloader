@@ -31,15 +31,15 @@ To convert .ui files generated from QT Designer into .py in the command line typ
 > app trys to change working directory to a windows path
 
 ### tests  
-> TODO: import asynchio module and see if i can have the proccess of title change and youtube scraping at the same time
-> TODO: Research other youtube modules
-> TODO: create an elif statement to deal with linux crashes or see if there is a better env variable
+- TODO: import asynchio module and see if i can have the proccess of title change and youtube scraping at the same time
+- TODO: Research other youtube modules
+- TODO: create an elif statement to deal with linux crashes or see if there is a better env variable
 
 ### potential remedies
-> switch to asynch functions 
-> other module
-> create elif statement
-> env variable
+- switch to asynch functions 
+- other module
+- create elif statement
+- env variable
 
 
 ## To-Do
