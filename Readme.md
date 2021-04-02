@@ -37,6 +37,9 @@ To convert .ui files generated from QT Designer into .py in the command line typ
 
 ### potential remedies
 > switch to asynch functions 
+> other module
+> create elif statement
+> env variable
 
 
 ## To-Do
