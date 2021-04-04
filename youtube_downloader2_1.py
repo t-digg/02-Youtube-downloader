@@ -195,7 +195,7 @@ class Ui_YT_Downloader(object):
 
     def retranslateUi(self, YT_Downloader):
         _translate = QtCore.QCoreApplication.translate
-        YT_Downloader.setWindowTitle(_translate("YT_Downloader", "MainWindow"))
+        YT_Downloader.setWindowTitle(_translate("YT_Downloader", "Youtube Downloader"))
         self.Title.setText(_translate("YT_Downloader", "YouTube Downloader"))
         self.URL_Bar.setPlaceholderText(_translate("YT_Downloader", "Enter YouTube URL here"))
         self.Download_Button.setText(_translate("YT_Downloader", "Download"))
